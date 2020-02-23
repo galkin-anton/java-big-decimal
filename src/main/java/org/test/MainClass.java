@@ -26,9 +26,24 @@ import java.math.BigDecimal;
  */
 
 public class MainClass {
+
     public static void main(String[] args) {
         System.out.println('\u2122');
         BigDecimal s = Operation.sumTwoBigDecimal(BigDecimal.valueOf(0.9), BigDecimal.valueOf(-0.8));
         System.out.println(s);
+        double sum = StrictFPMethod(0.9d, 0.8d);
+        System.out.println(sum);
+        System.out.println(0.9 - 0.8);
+        System.out.println(BigDecimal.valueOf(0.9).add(BigDecimal.valueOf(-0.8)));
+        System.out.println(0.9d - 0.8d == 0.9d - 0.8d);
+        System.out.println("========MAX========");
+        System.out.println(StrictMath.max(0.9, 0.8));
+        System.out.println(1.0 / 2 - 0.1);
+        System.out.println(Double.compare(1.0 / 3, 1.0 / 3));
+
+    }
+
+    static strictfp double StrictFPMethod(double a, double b) {
+        return a - b;
     }
 }
