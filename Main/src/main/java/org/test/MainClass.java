@@ -16,6 +16,11 @@ package org.test;
 import org.test.calc.Operation;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Project: TestTest
@@ -40,7 +45,20 @@ public class MainClass {
         System.out.println(StrictMath.max(0.9, 0.8));
         System.out.println(1.0 / 2 - 0.1);
         System.out.println(Double.compare(1.0 / 3, 1.0 / 3));
-
+        System.out.println("========DATE========");
+        LocalDateTime now = LocalDateTime.now(ZoneId.of("Etc/GMT0"));
+        System.out.println(now.format(DateTimeFormatter.ISO_DATE_TIME));
+        OffsetDateTime now1 = OffsetDateTime.now(ZoneId.of("Etc/GMT0"));
+        System.out.println(now1.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
+        now1 = OffsetDateTime.now(ZoneId.of("GMT"));
+        System.out.println(now1.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX")));
+        now1 = OffsetDateTime.parse("2020-02-26T10:12:22.232+03:00", DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+        System.out.println(now1.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
+        ZonedDateTime gmt = now1.atZoneSameInstant(ZoneId.of("GMT"));
+        System.out.println(gmt.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
+        /*for(String sss: ZoneId.getAvailableZoneIds()) {
+            System.out.println(sss);
+        }*/
     }
 
     static strictfp double StrictFPMethod(double a, double b) {
