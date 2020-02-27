@@ -13,6 +13,7 @@
  */
 package org.test.calc;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -29,6 +30,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OperationTest {
 
+    @DisplayName("SUMM")
     @Test
     public void successPath() {
         BigDecimal s = Operation.sumTwoBigDecimal(BigDecimal.valueOf(0.9), BigDecimal.valueOf(-0.8));
