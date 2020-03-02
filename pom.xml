@@ -20,5 +20,6 @@
         <module>Collections</module>
         <module>Parent</module>
         <module>Main</module>
+        <module>SimpleValues</module>
     </modules>
 </project>
