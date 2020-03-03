@@ -13,6 +13,10 @@
  */
 package org.test.collections;
 
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+
 /**
  * Project: TestTest
  * Author: Galkin A.B.
@@ -23,6 +27,11 @@ package org.test.collections;
 
 public class MainClass {
     public static void main(String... args) {
-        System.out.println("hi");
+        List<String> s = Arrays.asList("f1", "f2");
+        Iterator<String> iterator = s.iterator();
+
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
     }
 }
