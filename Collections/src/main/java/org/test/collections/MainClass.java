@@ -13,6 +13,8 @@
  */
 package org.test.collections;
 
+import org.test.collections.animals.Animal;
+
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -26,9 +28,16 @@ import java.util.List;
  */
 
 public class MainClass {
+
     public static void main(String... args) {
-        List<String> s = Arrays.asList("f1", "f2");
-        Iterator<String> iterator = s.iterator();
+        MainClass mainClass = new MainClass();
+        List<Animal> animals = Arrays.asList(new Animal("f1"));
+
+        mainClass.printAnimals(animals);
+    }
+
+    private void printAnimals(List<?> animals) {
+        Iterator<?> iterator = animals.iterator();
 
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
