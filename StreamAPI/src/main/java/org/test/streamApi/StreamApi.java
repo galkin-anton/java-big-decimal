@@ -14,13 +14,13 @@
 package org.test.streamApi;
 
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONStringer;
 import org.test.streamApi.model.RiskRecord;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 /**
@@ -36,6 +36,9 @@ public class StreamApi {
     private List<RiskRecord> rr = Arrays.asList(
             new RiskRecord("test", "test", Timestamp.valueOf(LocalDateTime.parse("2020-01-01T20:20:20.000"))),
             new RiskRecord("test1", "test1", Timestamp.valueOf(LocalDateTime.parse("2020-01-01T20:21:20.000"))),
+            new RiskRecord("test1", "process", Timestamp.valueOf(LocalDateTime.parse("2020-01-01T20:22:20.000"))),
+            new RiskRecord("test1", "process2", Timestamp.valueOf(LocalDateTime.parse("2020-01-01T20:22:20.000"))),
+            new RiskRecord("test1", "process2", Timestamp.valueOf(LocalDateTime.parse("2020-01-01T20:23:20.000"))),
             new RiskRecord("test3", "test1", Timestamp.valueOf(LocalDateTime.parse("2020-01-01T20:21:20.000")))
     );
 
@@ -54,6 +57,8 @@ public class StreamApi {
 
         System.out.println(StringUtils.isEmpty(operation));
         System.out.println(businessProcessList);
+
+        sa.groupingAndMax();
     }
 
     private void grouping() {
@@ -77,8 +82,25 @@ public class StreamApi {
         System.out.println(c2);
     }
 
-    private enum Op {
-        not,
-        eq
+    private void groupingAndMax() {
+        System.out.println("---Grouping BY and MAX---");
+        System.out.println(rr);
+        Map<String, Map<String, Optional<RiskRecord>>> collect = rr.stream().filter(r -> r.getObjectId().equals("test1"))
+                .collect(Collectors.groupingBy(RiskRecord::getObjectId, /*Collectors.maxBy((o1, o2) ->
+                        o1.getDateTimeCalcGMT().toLocalDateTime().compareTo(o2.getDateTimeCalcGMT().toLocalDateTime())
+                )*/
+                        Collectors.groupingBy(RiskRecord::getBusinessProcessId,
+                                Collectors.maxBy(Comparator.comparing(o -> o.getDateTimeCalcGMT().toLocalDateTime())))
+                ));
+        System.out.println(JSONStringer.valueToString(collect));
+        RiskRecord riskRecord = collect.get("test1").get("process2").get();
+        List<List<RiskRecord>> collect1 =
+                collect.entrySet().stream().map(r -> r.getValue().entrySet().stream().map(o -> o.getValue().get()).collect(Collectors.toList()))
+                        .collect(Collectors.toList());
+        List<RiskRecord> collect2 = collect1.stream().collect(Collector.of(ArrayList::new, ArrayList::addAll, (left, right) -> {
+            left.addAll(right.stream().collect(Collectors.toList()));
+            return left;
+        }));
+        System.out.println(JSONStringer.valueToString(collect2));
     }
 }
