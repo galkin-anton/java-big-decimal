@@ -16,11 +16,13 @@ package org.test;
 import org.test.calc.Operation;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.regex.Pattern;
 
 /**
  * Project: TestTest
@@ -56,6 +58,22 @@ public class MainClass {
         System.out.println(now1.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
         ZonedDateTime gmt = now1.atZoneSameInstant(ZoneId.of("GMT"));
         System.out.println(gmt.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
+        System.out.println("------LocalDateTime------");
+        LocalDateTime localDateTime = LocalDateTime.now();
+        System.out.println(localDateTime.atZone(ZoneId.of("GMT")));
+        System.out.println("------ZonedDateTime------");
+        //ZonedDateTime zonedDateTime = ZonedDateTime.parse("2020-03-06T14:13:01.652+03:00");
+        String dateTimeString = "2009-07-10T15:00:01.0Z";
+        if (Pattern.matches("^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?$", dateTimeString)) {
+            dateTimeString = dateTimeString + "Z";
+            System.out.println("new date time: " + dateTimeString);
+        }
+        ZonedDateTime zonedDateTime = ZonedDateTime.parse(dateTimeString);
+        System.out.println(zonedDateTime.withZoneSameInstant(ZoneId.of("GMT")).toLocalDateTime());
+        Timestamp timestamp = Timestamp.valueOf(zonedDateTime.withZoneSameInstant(ZoneId.of("GMT")).toLocalDateTime());
+        System.out.println("------Timestamp------");
+        System.out.println(timestamp);
+
         /*for(String sss: ZoneId.getAvailableZoneIds()) {
             System.out.println(sss);
         }*/

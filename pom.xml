@@ -21,5 +21,6 @@
         <module>Parent</module>
         <module>Main</module>
         <module>SimpleValues</module>
+      <module>StreamAPI</module>
     </modules>
 </project>

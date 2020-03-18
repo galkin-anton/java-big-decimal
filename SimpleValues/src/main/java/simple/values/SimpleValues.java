@@ -13,6 +13,8 @@
  */
 package simple.values;
 
+import java.math.BigDecimal;
+
 /**
  * Project: TestTest
  * Author: Galkin A.B.
@@ -23,11 +25,14 @@ package simple.values;
 
 public class SimpleValues {
 
-    private static final double MILLS_CONST = 1.3063778838630806904686144926;
+    private static final double MILLS_CONST = 1.3;
 
     public static void main(String... args) {
         SimpleValues s = new SimpleValues();
-        System.out.println(s.simpleValue(50));
+        System.out.println(s.simpleValue(3));
+        BigDecimal bigDecimal = BigDecimal.valueOf(3);
+        bigDecimal = bigDecimal.pow(50);
+        System.out.println(bigDecimal);
     }
 
     private double simpleValue(int n) {
