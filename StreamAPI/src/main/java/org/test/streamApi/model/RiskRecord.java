@@ -36,9 +36,12 @@ public class RiskRecord {
     private Timestamp dateTimeCalcGMT;
     private String idCalc;
     private String riskTypeID;
-    public RiskRecord(String objectId, String businessProcessId, Timestamp dateTimeCalcGMT) {
+    public RiskRecord(String objectId, String businessProcessId, Timestamp dateTimeCalcGMT, Timestamp updateDateTime, String riskTypeID, String idCalc) {
         this.objectId = objectId;
         this.businessProcessId = businessProcessId;
         this.dateTimeCalcGMT = dateTimeCalcGMT;
+        this.updateDateTime = updateDateTime;
+        this.riskTypeID = riskTypeID;
+        this.idCalc = idCalc;
     }
 }
