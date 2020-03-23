@@ -13,6 +13,7 @@
  */
 package org.test.calc.org.test.time;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.Instant;
@@ -34,6 +35,7 @@ public class TimeTest {
     }
 
     @Test
+    @DisplayName("Test for times")
     public void instantTime() {
         print("Time now ", Instant.now());
         print("Zoned now ", ZonedDateTime.now());
