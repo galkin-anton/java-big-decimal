@@ -15,6 +15,7 @@ package org.test.xml;
 
 import org.junit.jupiter.api.Test;
 import org.test.Utils;
+import org.test.xpath.XPathUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
@@ -29,6 +30,8 @@ import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 import java.io.IOException;
 import java.io.StringReader;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Project: TestTest
@@ -86,12 +89,19 @@ public class XMLTest extends Utils {
         for (int i = 0; i < nodeList.getLength(); i++) {
             String id = null;
             try {
-                id = (String) path.evaluate("//test["+(i+1)+"]/id",nodeList.item(i).getOwnerDocument(), XPathConstants.STRING);
+                id = (String) path.evaluate("//test[" + (i + 1) + "]/id", nodeList.item(i).getOwnerDocument(), XPathConstants.STRING);
             } catch (XPathExpressionException e) {
                 e.printStackTrace();
             }
             print(id);
         }
+    }
 
+    @Test
+    public void idsRights() {
+        String xml = "<test><id>1</id></test>";
+        XPathUtils xPath = XPathUtils.builder().xml(xml).build();
+
+        assertEquals("1", xPath.evaluateXpathString("//id"));
     }
 }

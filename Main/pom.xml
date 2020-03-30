@@ -2,27 +2,28 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.test</groupId>
-        <artifactId>Parent</artifactId>
-        <version>1.0</version>
-        <relativePath>../Parent/pom.xml</relativePath>
-    </parent>
-
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
     <groupId>org.test</groupId>
-    <artifactId>Main</artifactId>
-    <name>Main</name>
-    <properties>
-        <maven-jar-plugin.mainClass>org.org.test.MainClass</maven-jar-plugin.mainClass>
-    </properties>
+    <artifactId>Parent</artifactId>
+    <version>1.0</version>
+    <relativePath>../Parent/pom.xml</relativePath>
+  </parent>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.test</groupId>
-            <artifactId>Collections</artifactId>
-            <version>1.0</version>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
+  <groupId>org.test</groupId>
+  <artifactId>Main</artifactId>
+  <name>Main</name>
+
+  <properties>
+    <maven-jar-plugin.mainClass>org.org.test.MainClass</maven-jar-plugin.mainClass>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.test</groupId>
+      <artifactId>Collections</artifactId>
+      <version>1.0</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
 </project>
