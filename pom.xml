@@ -11,7 +11,6 @@
     <relativePath>/Parent/pom.xml</relativePath>
   </parent>
 
-  <groupId>org.test</groupId>
   <artifactId>TestTest</artifactId>
   <version>1.0</version>
   <packaging>pom</packaging>
