@@ -7,7 +7,6 @@
   <artifactId>Parent</artifactId>
   <version>1.0</version>
   <packaging>pom</packaging>
-
   <name>Parent</name>
 
   <developers>
@@ -24,7 +23,7 @@
     <newVersion>1.0</newVersion>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <maven-jar-plugin.mainClass></maven-jar-plugin.mainClass>
+    <maven-jar-plugin.mainClass/>
     <maven-assembly-plugin.version>3.2.0</maven-assembly-plugin.version>
     <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
     <lombok.version>1.18.12</lombok.version>
