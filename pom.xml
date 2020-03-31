@@ -21,6 +21,5 @@
     <module>Main</module>
     <module>SimpleValues</module>
     <module>StreamAPI</module>
-    <module>JSONvalidate</module>
   </modules>
 </project>
