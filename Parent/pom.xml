@@ -30,7 +30,19 @@
     <commons-lang3.version>3.9</commons-lang3.version>
     <json.version>20190722</json.version>
     <log4j.version>2.13.1</log4j.version>
+    <biz.aQute.bndlib.version>5.0.1</biz.aQute.bndlib.version>
   </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>biz.aQute.bnd</groupId>
+        <artifactId>biz.aQute.bndlib</artifactId>
+        <version>${biz.aQute.bndlib.version}</version>
+        <scope>provided</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <dependencies>
     <dependency>
