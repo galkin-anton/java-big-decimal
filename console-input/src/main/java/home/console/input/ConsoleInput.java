@@ -25,5 +25,11 @@ public class ConsoleInput {
         String userName = console.readLine("User name: ");
         char[] pswd = console.readPassword("Password: ");
         System.out.println(userName);
+
+        for (char c : pswd) {
+            System.out.print(c);
+        }
+
+        System.out.println();
     }
 }
