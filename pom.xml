@@ -21,5 +21,6 @@
     <module>Main</module>
     <module>SimpleValues</module>
     <module>StreamAPI</module>
+    <module>console-input</module>
   </modules>
 </project>
