@@ -28,9 +28,15 @@ public class CharsTest extends Utils {
     @Test
     public void successPath() {
         char[] c = {'a', 'b'};
-        
+
         for (char ch : c) {
             System.out.print(ch);
         }
+    }
+
+    @Test
+    public void TestSquare() {
+        int number = 25;
+        System.out.println(number * number);  
     }
 }
