@@ -37,6 +37,6 @@ public class CharsTest extends Utils {
     @Test
     public void TestSquare() {
         int number = 25;
-        System.out.println(number * number);  
+        System.out.println(number * number);
     }
 }
