@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.test</groupId>
     <artifactId>Parent</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <relativePath>../Parent/pom.xml</relativePath>
   </parent>
 
@@ -22,7 +22,7 @@
     <dependency>
       <groupId>org.test</groupId>
       <artifactId>Collections</artifactId>
-      <version>1.0</version>
+      <version>1.1</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>

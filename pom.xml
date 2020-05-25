@@ -7,12 +7,12 @@
   <parent>
     <groupId>org.test</groupId>
     <artifactId>Parent</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <relativePath>/Parent/pom.xml</relativePath>
   </parent>
 
   <artifactId>TestTest</artifactId>
-  <version>1.0</version>
+  <version>1.1</version>
   <packaging>pom</packaging>
 
   <modules>
