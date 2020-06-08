@@ -8,6 +8,7 @@
   <version>1.1</version>
   <modules>
     <module>../j8Features</module>
+    <module>../LoggerTest</module>
   </modules>
   <packaging>pom</packaging>
   <name>Parent</name>
