@@ -22,5 +22,6 @@
     <module>SimpleValues</module>
     <module>StreamAPI</module>
     <module>console-input</module>
+    <module>JSONvalidate</module>
   </modules>
 </project>
