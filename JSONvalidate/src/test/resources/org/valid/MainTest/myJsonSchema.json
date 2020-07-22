@@ -1,0 +1,14 @@
+{
+	 "$schema": "http://json-schema.org/draft-04/schema#",
+	 "description": "Comment describing your JSON Schema",
+	 "type": "object",
+	 "properties": {
+		 "typeType": {
+			 "type": "string"
+		},
+		 "name": {
+			 "type": "string"
+		}
+	},
+	 "additionalProperties": false
+}

@@ -12,4 +12,18 @@
 
   <artifactId>JSONvalidate</artifactId>
 
+  <dependencies>
+    <dependency>
+      <groupId>com.github.everit-org.json-schema</groupId>
+      <artifactId>org.everit.json.schema</artifactId>
+      <version>1.12.1</version>
+    </dependency>
+  </dependencies>
+
+  <repositories>
+      <repository>
+          <id>jitpack.io</id>
+          <url>https://jitpack.io</url>
+      </repository>
+  </repositories>
 </project>
